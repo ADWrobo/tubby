@@ -134,7 +134,7 @@ private struct ExerciseLogEntryRow: View {
                     .foregroundStyle(.secondary)
 
                 if let calories = entry.estimatedCaloriesBurned() {
-                    Text("\(formatted(calories.value)) calorie estimate")
+                    Text("\(ManualEntryFormatting.decimalString(calories.value)) calorie estimate")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
@@ -158,10 +158,7 @@ private struct ExerciseLogEntryRow: View {
     }
 
     private func formatted(_ value: Double) -> String {
-        if value.rounded(.towardZero) == value {
-            return String(Int(value))
-        }
-        return value.formatted(.number.precision(.fractionLength(0...1)))
+        ManualEntryFormatting.decimalString(value)
     }
 }
 

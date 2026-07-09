@@ -8,6 +8,7 @@ struct FoodLogEntryDraft: Identifiable, Equatable, Sendable {
 
     enum ValidationError: LocalizedError, Equatable, Sendable {
         case missingFoodName
+        case missingServings
         case invalidServings
         case invalidNumber(field: String)
 
@@ -15,10 +16,12 @@ struct FoodLogEntryDraft: Identifiable, Equatable, Sendable {
             switch self {
             case .missingFoodName:
                 return "Enter a food name."
+            case .missingServings:
+                return "Enter servings for this entry."
             case .invalidServings:
                 return "Servings need to be greater than 0."
             case .invalidNumber(let field):
-                return "\(field) needs a valid number or can be left blank."
+                return "Enter a valid number for \(field), or leave it blank."
             }
         }
     }
@@ -91,13 +94,18 @@ struct FoodLogEntryDraft: Identifiable, Equatable, Sendable {
     }
 
     var isValidForSaving: Bool {
-        !foodName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && parsedServings > 0
+        !foodName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !servingsText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     func makeEntry() throws -> FoodLogEntry {
         let trimmedFoodName = foodName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedFoodName.isEmpty else {
             throw ValidationError.missingFoodName
+        }
+
+        let trimmedServings = servingsText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedServings.isEmpty else {
+            throw ValidationError.missingServings
         }
 
         let servings = try parseRequiredNumber(servingsText, field: "Servings")
@@ -126,10 +134,6 @@ struct FoodLogEntryDraft: Identifiable, Equatable, Sendable {
             ),
             servings: servings
         )
-    }
-
-    private var parsedServings: Double {
-        Double(servingsText.trimmingCharacters(in: .whitespacesAndNewlines)) ?? 0
     }
 
     private func parseRequiredNumber(_ text: String, field: String) throws -> Double {
@@ -161,10 +165,7 @@ struct FoodLogEntryDraft: Identifiable, Equatable, Sendable {
     }
 
     private static func string(from value: Double) -> String {
-        if value.rounded(.towardZero) == value {
-            return String(Int(value))
-        }
-        return String(value)
+        ManualEntryFormatting.decimalString(value)
     }
 }
 

@@ -48,6 +48,11 @@ struct BiometricsLogFeatureTests {
         }
     }
 
+    @Test func wholeAndDecimalMeasurementValuesFormatStably() {
+        #expect(ManualEntryFormatting.decimalString(118) == "118")
+        #expect(ManualEntryFormatting.decimalString(34.5) == "34.5")
+    }
+
     @Test func validValueAndKindMapToEntry() throws {
         let draft = BiometricsEntryDraft(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000006001")!,

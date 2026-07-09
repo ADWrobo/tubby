@@ -13,9 +13,9 @@ struct BiometricsEntryDraft: Identifiable, Equatable, Sendable {
         var errorDescription: String? {
             switch self {
             case .missingValue:
-                return "Enter a value."
+                return "Enter a measurement value."
             case .invalidNumber:
-                return "Value needs a valid number."
+                return "Enter a valid number for this measurement."
             }
         }
     }
@@ -78,9 +78,6 @@ struct BiometricsEntryDraft: Identifiable, Equatable, Sendable {
     }
 
     private static func string(from value: Double) -> String {
-        if value.rounded(.towardZero) == value {
-            return String(Int(value))
-        }
-        return String(value)
+        ManualEntryFormatting.decimalString(value)
     }
 }

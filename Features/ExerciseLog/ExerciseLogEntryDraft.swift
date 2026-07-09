@@ -8,6 +8,7 @@ struct ExerciseLogEntryDraft: Identifiable, Equatable, Sendable {
 
     enum ValidationError: LocalizedError, Equatable, Sendable {
         case missingActivityName
+        case missingDuration
         case invalidDuration
         case invalidNumber(field: String)
 
@@ -15,10 +16,12 @@ struct ExerciseLogEntryDraft: Identifiable, Equatable, Sendable {
             switch self {
             case .missingActivityName:
                 return "Enter an activity name."
+            case .missingDuration:
+                return "Enter minutes for this entry."
             case .invalidDuration:
                 return "Duration needs to be greater than 0."
             case .invalidNumber(let field):
-                return "\(field) needs a valid number or can be left blank."
+                return "Enter a valid number for \(field), or leave it blank."
             }
         }
     }
@@ -67,13 +70,18 @@ struct ExerciseLogEntryDraft: Identifiable, Equatable, Sendable {
     }
 
     var isValidForSaving: Bool {
-        !activityName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && parsedDuration > 0
+        !activityName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !durationText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     func makeEntry() throws -> ExerciseLogEntry {
         let trimmedActivityName = activityName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedActivityName.isEmpty else {
             throw ValidationError.missingActivityName
+        }
+
+        let trimmedDuration = durationText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedDuration.isEmpty else {
+            throw ValidationError.missingDuration
         }
 
         let duration = try parseRequiredNumber(durationText, field: "Duration")
@@ -96,10 +104,6 @@ struct ExerciseLogEntryDraft: Identifiable, Equatable, Sendable {
             duration: Minutes(duration),
             intensity: intensity
         )
-    }
-
-    private var parsedDuration: Double {
-        Double(durationText.trimmingCharacters(in: .whitespacesAndNewlines)) ?? 0
     }
 
     private func parseRequiredNumber(_ text: String, field: String) throws -> Double {
@@ -131,10 +135,7 @@ struct ExerciseLogEntryDraft: Identifiable, Equatable, Sendable {
     }
 
     private static func string(from value: Double) -> String {
-        if value.rounded(.towardZero) == value {
-            return String(Int(value))
-        }
-        return String(value)
+        ManualEntryFormatting.decimalString(value)
     }
 }
 

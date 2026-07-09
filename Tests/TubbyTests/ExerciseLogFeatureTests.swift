@@ -64,6 +64,27 @@ struct ExerciseLogFeatureTests {
         #expect(entry.activity.caloriesBurnedPerMinute == nil)
     }
 
+    @Test func wholeAndDecimalDurationsFormatStably() {
+        #expect(ManualEntryFormatting.decimalString(45) == "45")
+        #expect(ManualEntryFormatting.decimalString(12.5) == "12.5")
+    }
+
+    @Test func blankDurationIsRejectedWithCalmValidation() {
+        let draft = ExerciseLogEntryDraft(
+            activityName: "Walk",
+            durationText: "   "
+        )
+
+        do {
+            _ = try draft.makeEntry()
+            #expect(Bool(false))
+        } catch ExerciseLogEntryDraft.ValidationError.missingDuration {
+            #expect(Bool(true))
+        } catch {
+            #expect(Bool(false))
+        }
+    }
+
     @Test func numericCaloriesBurnedPerMinuteMapsToCalories() throws {
         let draft = ExerciseLogEntryDraft(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000005101")!,
