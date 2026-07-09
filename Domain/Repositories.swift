@@ -1,6 +1,6 @@
 import Foundation
 
-protocol FoodLogEntryRepository: Sendable {
+protocol FoodLogEntryRepository {
     func listRecentEntries(limit: Int) async -> [FoodLogEntry]
     func listEntries(for date: Date) async -> [FoodLogEntry]
     func listEntries(from startDate: Date, through endDate: Date) async -> [FoodLogEntry]
@@ -8,7 +8,7 @@ protocol FoodLogEntryRepository: Sendable {
     func delete(id: FoodLogEntry.ID) async
 }
 
-protocol ExerciseLogEntryRepository: Sendable {
+protocol ExerciseLogEntryRepository {
     func listRecentEntries(limit: Int) async -> [ExerciseLogEntry]
     func listEntries(for date: Date) async -> [ExerciseLogEntry]
     func listEntries(from startDate: Date, through endDate: Date) async -> [ExerciseLogEntry]
@@ -16,7 +16,7 @@ protocol ExerciseLogEntryRepository: Sendable {
     func delete(id: ExerciseLogEntry.ID) async
 }
 
-protocol BiometricsEntryRepository: Sendable {
+protocol BiometricsEntryRepository {
     func listRecentEntries(limit: Int) async -> [BiometricsEntry]
     func listEntries(for date: Date) async -> [BiometricsEntry]
     func listEntries(from startDate: Date, through endDate: Date) async -> [BiometricsEntry]

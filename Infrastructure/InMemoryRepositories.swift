@@ -9,7 +9,8 @@ actor InMemoryFoodLogEntryRepository: FoodLogEntryRepository {
     }
 
     func listRecentEntries(limit: Int) async -> [FoodLogEntry] {
-        Array(sortedEntries.prefix(limit))
+        guard limit > 0 else { return [] }
+        return Array(sortedEntries.prefix(limit))
     }
 
     func listEntries(for date: Date) async -> [FoodLogEntry] {
@@ -17,7 +18,7 @@ actor InMemoryFoodLogEntryRepository: FoodLogEntryRepository {
     }
 
     func listEntries(from startDate: Date, through endDate: Date) async -> [FoodLogEntry] {
-        filteredEntries(for: DateInterval(start: startDate, end: endDate))
+        sortedEntries.filter { $0.loggedAt >= startDate && $0.loggedAt <= endDate }
     }
 
     func save(_ entry: FoodLogEntry) async -> FoodLogEntry {
@@ -53,7 +54,8 @@ actor InMemoryExerciseLogEntryRepository: ExerciseLogEntryRepository {
     }
 
     func listRecentEntries(limit: Int) async -> [ExerciseLogEntry] {
-        Array(sortedEntries.prefix(limit))
+        guard limit > 0 else { return [] }
+        return Array(sortedEntries.prefix(limit))
     }
 
     func listEntries(for date: Date) async -> [ExerciseLogEntry] {
@@ -61,7 +63,7 @@ actor InMemoryExerciseLogEntryRepository: ExerciseLogEntryRepository {
     }
 
     func listEntries(from startDate: Date, through endDate: Date) async -> [ExerciseLogEntry] {
-        filteredEntries(for: DateInterval(start: startDate, end: endDate))
+        sortedEntries.filter { $0.loggedAt >= startDate && $0.loggedAt <= endDate }
     }
 
     func save(_ entry: ExerciseLogEntry) async -> ExerciseLogEntry {
@@ -97,7 +99,8 @@ actor InMemoryBiometricsEntryRepository: BiometricsEntryRepository {
     }
 
     func listRecentEntries(limit: Int) async -> [BiometricsEntry] {
-        Array(sortedEntries.prefix(limit))
+        guard limit > 0 else { return [] }
+        return Array(sortedEntries.prefix(limit))
     }
 
     func listEntries(for date: Date) async -> [BiometricsEntry] {
@@ -105,7 +108,7 @@ actor InMemoryBiometricsEntryRepository: BiometricsEntryRepository {
     }
 
     func listEntries(from startDate: Date, through endDate: Date) async -> [BiometricsEntry] {
-        filteredEntries(for: DateInterval(start: startDate, end: endDate))
+        sortedEntries.filter { $0.loggedAt >= startDate && $0.loggedAt <= endDate }
     }
 
     func save(_ entry: BiometricsEntry) async -> BiometricsEntry {
