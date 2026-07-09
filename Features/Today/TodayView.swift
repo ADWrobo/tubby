@@ -36,6 +36,16 @@ struct TodayView: View {
                     }
                     .buttonStyle(.plain)
 
+                    NavigationLink {
+                        ExerciseLogView(environment: environment)
+                    } label: {
+                        ActionCard(
+                            title: "Exercise Log",
+                            detail: "Add and review activities for the selected day."
+                        )
+                    }
+                    .buttonStyle(.plain)
+
                     if viewModel.isLoading && !viewModel.hasLoaded {
                         LoadingSummaryCard()
                     }
