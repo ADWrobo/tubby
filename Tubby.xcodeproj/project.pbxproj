@@ -8,29 +8,25 @@
 /* Begin PBXBuildFile section */
 		A1B2C3D41F00000100000001 /* TubbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000001 /* TubbyApp.swift */; };
 		A1B2C3D41F00000100000002 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000002 /* AppEnvironment.swift */; };
-		A1B2C3D41F00000100000003 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000003 /* Meal.swift */; };
-		A1B2C3D41F00000100000004 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000004 /* Exercise.swift */; };
-		A1B2C3D41F00000100000005 /* BiometricsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000005 /* BiometricsEntry.swift */; };
-		A1B2C3D41F00000100000006 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000006 /* Repositories.swift */; };
-		A1B2C3D41F00000100000007 /* LookupProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000007 /* LookupProviders.swift */; };
-		A1B2C3D41F00000100000008 /* InMemoryRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000008 /* InMemoryRepositories.swift */; };
-		A1B2C3D41F00000100000009 /* PersistenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000009 /* PersistenceModels.swift */; };
-		A1B2C3D41F0000010000000A /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000A /* TodayView.swift */; };
-		A1B2C3D41F0000010000000B /* TubbySmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000B /* TubbySmokeTests.swift */; };
+		A1B2C3D41F00000100000003 /* DomainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000003 /* DomainModels.swift */; };
+		A1B2C3D41F00000100000004 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000004 /* Repositories.swift */; };
+		A1B2C3D41F00000100000005 /* LookupProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000005 /* LookupProviders.swift */; };
+		A1B2C3D41F00000100000006 /* InMemoryRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000006 /* InMemoryRepositories.swift */; };
+		A1B2C3D41F00000100000007 /* PersistenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000007 /* PersistenceModels.swift */; };
+		A1B2C3D41F00000100000008 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000008 /* TodayView.swift */; };
+		A1B2C3D41F00000100000009 /* TubbyDomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000009 /* TubbyDomainTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A1B2C3D31F00000100000001 /* TubbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/TubbyApp.swift; sourceTree = "<group>"; };
 		A1B2C3D31F00000100000002 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppEnvironment.swift; sourceTree = "<group>"; };
-		A1B2C3D31F00000100000003 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Meal.swift; sourceTree = "<group>"; };
-		A1B2C3D31F00000100000004 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Exercise.swift; sourceTree = "<group>"; };
-		A1B2C3D31F00000100000005 /* BiometricsEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/BiometricsEntry.swift; sourceTree = "<group>"; };
-		A1B2C3D31F00000100000006 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories.swift; sourceTree = "<group>"; };
-		A1B2C3D31F00000100000007 /* LookupProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lookup/LookupProviders.swift; sourceTree = "<group>"; };
-		A1B2C3D31F00000100000008 /* InMemoryRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/InMemoryRepositories.swift; sourceTree = "<group>"; };
-		A1B2C3D31F00000100000009 /* PersistenceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence/PersistenceModels.swift; sourceTree = "<group>"; };
-		A1B2C3D31F0000010000000A /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Today/TodayView.swift; sourceTree = "<group>"; };
-		A1B2C3D31F0000010000000B /* TubbySmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/TubbyTests/TubbySmokeTests.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000003 /* DomainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/DomainModels.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000004 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000005 /* LookupProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lookup/LookupProviders.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000006 /* InMemoryRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/InMemoryRepositories.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000007 /* PersistenceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence/PersistenceModels.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000008 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Today/TodayView.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000009 /* TubbyDomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/TubbyTests/TubbyDomainTests.swift; sourceTree = "<group>"; };
 		A1B2C3D31F00000100000010 /* Tubby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Tubby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D31F00000100000011 /* TubbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = TubbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -64,14 +60,12 @@
 			children = (
 				A1B2C3D31F00000100000001 /* TubbyApp.swift */,
 				A1B2C3D31F00000100000002 /* AppEnvironment.swift */,
-				A1B2C3D31F00000100000003 /* Meal.swift */,
-				A1B2C3D31F00000100000004 /* Exercise.swift */,
-				A1B2C3D31F00000100000005 /* BiometricsEntry.swift */,
-				A1B2C3D31F00000100000006 /* Repositories.swift */,
-				A1B2C3D31F00000100000007 /* LookupProviders.swift */,
-				A1B2C3D31F00000100000008 /* InMemoryRepositories.swift */,
-				A1B2C3D31F00000100000009 /* PersistenceModels.swift */,
-				A1B2C3D31F0000010000000A /* TodayView.swift */,
+				A1B2C3D31F00000100000003 /* DomainModels.swift */,
+				A1B2C3D31F00000100000004 /* Repositories.swift */,
+				A1B2C3D31F00000100000005 /* LookupProviders.swift */,
+				A1B2C3D31F00000100000006 /* InMemoryRepositories.swift */,
+				A1B2C3D31F00000100000007 /* PersistenceModels.swift */,
+				A1B2C3D31F00000100000008 /* TodayView.swift */,
 				A1B2C3D11F00000100000004 /* TubbyTests */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +81,7 @@
 		A1B2C3D11F00000100000004 /* TubbyTests */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D31F0000010000000B /* TubbySmokeTests.swift */,
+				A1B2C3D31F00000100000009 /* TubbyDomainTests.swift */,
 			);
 			path = Tests/TubbyTests;
 			sourceTree = "<group>";
@@ -186,14 +180,12 @@
 			files = (
 				A1B2C3D41F00000100000001 /* TubbyApp.swift in Sources */,
 				A1B2C3D41F00000100000002 /* AppEnvironment.swift in Sources */,
-				A1B2C3D41F00000100000003 /* Meal.swift in Sources */,
-				A1B2C3D41F00000100000004 /* Exercise.swift in Sources */,
-				A1B2C3D41F00000100000005 /* BiometricsEntry.swift in Sources */,
-				A1B2C3D41F00000100000006 /* Repositories.swift in Sources */,
-				A1B2C3D41F00000100000007 /* LookupProviders.swift in Sources */,
-				A1B2C3D41F00000100000008 /* InMemoryRepositories.swift in Sources */,
-				A1B2C3D41F00000100000009 /* PersistenceModels.swift in Sources */,
-				A1B2C3D41F0000010000000A /* TodayView.swift in Sources */,
+				A1B2C3D41F00000100000003 /* DomainModels.swift in Sources */,
+				A1B2C3D41F00000100000004 /* Repositories.swift in Sources */,
+				A1B2C3D41F00000100000005 /* LookupProviders.swift in Sources */,
+				A1B2C3D41F00000100000006 /* InMemoryRepositories.swift in Sources */,
+				A1B2C3D41F00000100000007 /* PersistenceModels.swift in Sources */,
+				A1B2C3D41F00000100000008 /* TodayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B2C3D41F0000010000000B /* TubbySmokeTests.swift in Sources */,
+				A1B2C3D41F00000100000009 /* TubbyDomainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
