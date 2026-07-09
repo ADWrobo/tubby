@@ -42,7 +42,7 @@ final class TodayViewModel: ObservableObject {
 
     var mealSummaryLines: [String] {
         guard !summary.foodLogEntries.isEmpty else {
-            return ["No food entries yet"]
+            return ["No recent food entries"]
         }
 
         var lines = ["\(summary.foodLogEntries.count) \(entryText(summary.foodLogEntries.count, singular: "food entry", plural: "food entries")) logged"]
@@ -66,7 +66,7 @@ final class TodayViewModel: ObservableObject {
 
     var exerciseSummaryLines: [String] {
         guard !summary.exerciseLogEntries.isEmpty else {
-            return ["No exercise entries yet"]
+            return ["No recent exercise entries"]
         }
 
         var lines = ["\(summary.exerciseLogEntries.count) \(entryText(summary.exerciseLogEntries.count, singular: "exercise entry", plural: "exercise entries")) logged"]
@@ -85,7 +85,7 @@ final class TodayViewModel: ObservableObject {
 
     var biometricsSummaryLines: [String] {
         guard !summary.biometricEntries.isEmpty else {
-            return ["No biometric entries yet"]
+            return ["No recent measurements"]
         }
 
         var lines = ["\(summary.biometricEntries.count) \(entryText(summary.biometricEntries.count, singular: "biometric entry", plural: "biometric entries")) logged"]
@@ -145,7 +145,7 @@ private enum TodayViewError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .load:
-            return "We couldn't load today's summary. Please try again."
+            return "We couldn't load the summary. Please try again."
         }
     }
 }

@@ -19,9 +19,9 @@ struct BiometricsLogView: View {
     var body: some View {
         List {
             Section {
-                DatePicker("Day", selection: $viewModel.selectedDate, displayedComponents: [.date])
+                DatePicker("Recent day", selection: $viewModel.selectedDate, displayedComponents: [.date])
             } header: {
-                Text("Date")
+                Text("Recent")
             }
 
             if let errorMessage = viewModel.errorMessage {
@@ -34,16 +34,16 @@ struct BiometricsLogView: View {
                 Section {
                     HStack {
                         Spacer()
-                        ProgressView("Loading entries")
+                        ProgressView("Loading recent entries")
                         Spacer()
                     }
                 }
             } else if viewModel.entries.isEmpty {
                 Section {
                     ContentUnavailableView(
-                        "No biometric entries yet",
+                        "No recent measurements",
                         systemImage: "heart.text.square",
-                        description: Text("Add a biometric entry for this day.")
+                        description: Text("Add a measurement for this day.")
                     )
                 }
             } else {
@@ -77,7 +77,7 @@ struct BiometricsLogView: View {
                 Button {
                     draft = BiometricsEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add measurement", systemImage: "plus")
                 }
             }
         }
@@ -89,7 +89,7 @@ struct BiometricsLogView: View {
                 Button {
                     draft = BiometricsEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add measurement", systemImage: "plus")
                 }
             }
         }

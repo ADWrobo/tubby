@@ -19,9 +19,9 @@ struct ExerciseLogView: View {
     var body: some View {
         List {
             Section {
-                DatePicker("Day", selection: $viewModel.selectedDate, displayedComponents: [.date])
+                DatePicker("Recent day", selection: $viewModel.selectedDate, displayedComponents: [.date])
             } header: {
-                Text("Date")
+                Text("Recent")
             }
 
             if let errorMessage = viewModel.errorMessage {
@@ -34,16 +34,16 @@ struct ExerciseLogView: View {
                 Section {
                     HStack {
                         Spacer()
-                        ProgressView("Loading entries")
+                        ProgressView("Loading recent entries")
                         Spacer()
                     }
                 }
             } else if viewModel.entries.isEmpty {
                 Section {
                     ContentUnavailableView(
-                        "No exercise entries yet",
+                        "No recent exercise entries",
                         systemImage: "figure.walk",
-                        description: Text("Add an activity for this day.")
+                        description: Text("Add an exercise entry for this day.")
                     )
                 }
             } else {
@@ -77,7 +77,7 @@ struct ExerciseLogView: View {
                 Button {
                     draft = ExerciseLogEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add exercise", systemImage: "plus")
                 }
             }
         }
@@ -89,7 +89,7 @@ struct ExerciseLogView: View {
                 Button {
                     draft = ExerciseLogEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add exercise", systemImage: "plus")
                 }
             }
         }
@@ -134,7 +134,7 @@ private struct ExerciseLogEntryRow: View {
                     .foregroundStyle(.secondary)
 
                 if let calories = entry.estimatedCaloriesBurned() {
-                    Text("\(formatted(calories.value)) estimated calories")
+                    Text("\(formatted(calories.value)) calorie estimate")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }

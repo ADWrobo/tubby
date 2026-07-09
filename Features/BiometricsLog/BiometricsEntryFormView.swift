@@ -8,9 +8,9 @@ struct BiometricsEntryFormView: View {
         var title: String {
             switch self {
             case .add:
-                return "Add Biometric Entry"
+                return "Add measurement"
             case .edit:
-                return "Edit Biometric Entry"
+                return "Edit measurement"
             }
         }
     }
@@ -38,8 +38,8 @@ struct BiometricsEntryFormView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Metric") {
-                    Picker("Metric type", selection: $draft.kind) {
+                Section("Measurement details") {
+                    Picker("Measurement type", selection: $draft.kind) {
                         ForEach(BiometricsKind.allCases, id: \.self) { kind in
                             Text(kind.displayName).tag(kind)
                         }

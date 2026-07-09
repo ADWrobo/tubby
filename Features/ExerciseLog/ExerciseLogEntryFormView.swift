@@ -8,9 +8,9 @@ struct ExerciseLogEntryFormView: View {
         var title: String {
             switch self {
             case .add:
-                return "Add Exercise Entry"
+                return "Add exercise"
             case .edit:
-                return "Edit Exercise Entry"
+                return "Edit exercise"
             }
         }
     }
@@ -38,7 +38,7 @@ struct ExerciseLogEntryFormView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Activity") {
+                Section("Exercise details") {
                     TextField("Activity name", text: $draft.activityName)
 #if os(iOS)
                         .textInputAutocapitalization(.words)
@@ -66,7 +66,7 @@ struct ExerciseLogEntryFormView: View {
                 }
 
                 Section("Energy estimate") {
-                    optionalNumberField("Calories burned per minute", text: $draft.caloriesBurnedPerMinuteText)
+                    optionalNumberField("Calorie estimate per minute", text: $draft.caloriesBurnedPerMinuteText)
                 }
 
                 if let errorMessage {

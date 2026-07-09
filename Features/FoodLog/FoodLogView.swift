@@ -19,9 +19,9 @@ struct FoodLogView: View {
     var body: some View {
         List {
             Section {
-                DatePicker("Day", selection: $viewModel.selectedDate, displayedComponents: [.date])
+                DatePicker("Recent day", selection: $viewModel.selectedDate, displayedComponents: [.date])
             } header: {
-                Text("Date")
+                Text("Recent")
             }
 
             if let errorMessage = viewModel.errorMessage {
@@ -34,16 +34,16 @@ struct FoodLogView: View {
                 Section {
                     HStack {
                         Spacer()
-                        ProgressView("Loading entries")
+                        ProgressView("Loading recent entries")
                         Spacer()
                     }
                 }
             } else if viewModel.entries.isEmpty {
                 Section {
                     ContentUnavailableView(
-                        "No food entries yet",
+                        "No recent food entries",
                         systemImage: "fork.knife",
-                        description: Text("Add a meal or snack for this day.")
+                        description: Text("Add a food entry for this day.")
                     )
                 }
             } else {
@@ -77,7 +77,7 @@ struct FoodLogView: View {
                 Button {
                     draft = FoodLogEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add food", systemImage: "plus")
                 }
             }
         }
@@ -89,7 +89,7 @@ struct FoodLogView: View {
                 Button {
                     draft = FoodLogEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add food", systemImage: "plus")
                 }
             }
         }
@@ -134,7 +134,7 @@ private struct FoodLogEntryRow: View {
                     .foregroundStyle(.secondary)
 
                 if let calories = entry.foodItem.nutritionFacts.calories {
-                    Text("\(calories.value, format: .number) calories")
+                    Text("\(calories.value, format: .number) calorie estimate")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }

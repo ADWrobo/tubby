@@ -21,7 +21,7 @@ struct TodayView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Today")
                             .font(.largeTitle.bold())
-                        Text("A calm, local-first summary of recent logs.")
+                        Text("A calm, local-first summary of recent entries.")
                             .font(.body)
                             .foregroundStyle(.secondary)
                     }
@@ -31,7 +31,7 @@ struct TodayView: View {
                     } label: {
                         ActionCard(
                             title: "Food Log",
-                            detail: "Add and review meals for the selected day."
+                            detail: "Review recent food entries and details."
                         )
                     }
                     .buttonStyle(.plain)
@@ -41,7 +41,7 @@ struct TodayView: View {
                     } label: {
                         ActionCard(
                             title: "Exercise Log",
-                            detail: "Add and review activities for the selected day."
+                            detail: "Review recent exercise entries and details."
                         )
                     }
                     .buttonStyle(.plain)
@@ -51,7 +51,7 @@ struct TodayView: View {
                     } label: {
                         ActionCard(
                             title: "Biometrics Log",
-                            detail: "Add and review biometric entries for the selected day."
+                            detail: "Review recent measurement entries and details."
                         )
                     }
                     .buttonStyle(.plain)
@@ -64,9 +64,9 @@ struct TodayView: View {
                         SummaryCard(title: "Summary", lines: [errorMessage], systemImage: "exclamationmark.circle")
                     }
 
-                    SummaryCard(title: "Meals", lines: viewModel.mealSummaryLines, systemImage: "fork.knife")
-                    SummaryCard(title: "Exercise", lines: viewModel.exerciseSummaryLines, systemImage: "figure.walk")
-                    SummaryCard(title: "Biometrics", lines: viewModel.biometricsSummaryLines, systemImage: "heart.text.square")
+                    SummaryCard(title: "Food summary", lines: viewModel.mealSummaryLines, systemImage: "fork.knife")
+                    SummaryCard(title: "Exercise summary", lines: viewModel.exerciseSummaryLines, systemImage: "figure.walk")
+                    SummaryCard(title: "Biometrics summary", lines: viewModel.biometricsSummaryLines, systemImage: "heart.text.square")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
@@ -145,7 +145,7 @@ private struct LoadingSummaryCard: View {
     var body: some View {
         HStack(spacing: 12) {
             ProgressView()
-            Text("Loading today's summary")
+            Text("Loading today's summary...")
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
