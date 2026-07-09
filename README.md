@@ -8,6 +8,7 @@ Tubby is an iOS-native, local-first companion app for tracking nutrition, exerci
 - App environment for dependency injection
 - Expressive domain models for food, exercise, and biometrics
 - Async repository contracts plus in-memory and SwiftData-backed implementations
+- Manual food logging UI backed by local repositories
 - Placeholder lookup providers for deferred network integrations
 - Swift Testing coverage for domain calculations and repository behavior
 

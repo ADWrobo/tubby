@@ -17,6 +17,11 @@
 		A1B2C3D41F00000100000009 /* TubbyDomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000009 /* TubbyDomainTests.swift */; };
 		A1B2C3D41F0000010000000A /* SwiftDataRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000A /* SwiftDataRepositories.swift */; };
 		A1B2C3D41F0000010000000B /* TubbyPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000B /* TubbyPersistenceTests.swift */; };
+		A1B2C3D41F0000010000000C /* FoodLogEntryDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000C /* FoodLogEntryDraft.swift */; };
+		A1B2C3D41F0000010000000D /* FoodLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000D /* FoodLogViewModel.swift */; };
+		A1B2C3D41F0000010000000E /* FoodLogEntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000E /* FoodLogEntryFormView.swift */; };
+		A1B2C3D41F0000010000000F /* FoodLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000F /* FoodLogView.swift */; };
+		A1B2C3D41F00000100000012 /* FoodLogFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000012 /* FoodLogFeatureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		A1B2C3D31F00000100000009 /* TubbyDomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubbyDomainTests.swift; sourceTree = "<group>"; };
 		A1B2C3D31F0000010000000A /* SwiftDataRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/SwiftDataRepositories.swift; sourceTree = "<group>"; };
 		A1B2C3D31F0000010000000B /* TubbyPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubbyPersistenceTests.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000000C /* FoodLogEntryDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/FoodLog/FoodLogEntryDraft.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000000D /* FoodLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/FoodLog/FoodLogViewModel.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000000E /* FoodLogEntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/FoodLog/FoodLogEntryFormView.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000000F /* FoodLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/FoodLog/FoodLogView.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000012 /* FoodLogFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogFeatureTests.swift; sourceTree = "<group>"; };
 		A1B2C3D31F00000100000010 /* Tubby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Tubby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D31F00000100000011 /* TubbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = TubbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,6 +80,10 @@
 				A1B2C3D31F00000100000006 /* InMemoryRepositories.swift */,
 				A1B2C3D31F0000010000000A /* SwiftDataRepositories.swift */,
 				A1B2C3D31F00000100000007 /* PersistenceModels.swift */,
+				A1B2C3D31F0000010000000C /* FoodLogEntryDraft.swift */,
+				A1B2C3D31F0000010000000D /* FoodLogViewModel.swift */,
+				A1B2C3D31F0000010000000E /* FoodLogEntryFormView.swift */,
+				A1B2C3D31F0000010000000F /* FoodLogView.swift */,
 				A1B2C3D31F00000100000008 /* TodayView.swift */,
 				A1B2C3D11F00000100000004 /* TubbyTests */,
 			);
@@ -192,6 +206,10 @@
 				A1B2C3D41F00000100000006 /* InMemoryRepositories.swift in Sources */,
 				A1B2C3D41F0000010000000A /* SwiftDataRepositories.swift in Sources */,
 				A1B2C3D41F00000100000007 /* PersistenceModels.swift in Sources */,
+				A1B2C3D41F0000010000000C /* FoodLogEntryDraft.swift in Sources */,
+				A1B2C3D41F0000010000000D /* FoodLogViewModel.swift in Sources */,
+				A1B2C3D41F0000010000000E /* FoodLogEntryFormView.swift in Sources */,
+				A1B2C3D41F0000010000000F /* FoodLogView.swift in Sources */,
 				A1B2C3D41F00000100000008 /* TodayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +220,7 @@
 			files = (
 				A1B2C3D41F00000100000009 /* TubbyDomainTests.swift in Sources */,
 				A1B2C3D41F0000010000000B /* TubbyPersistenceTests.swift in Sources */,
+				A1B2C3D41F00000100000012 /* FoodLogFeatureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
