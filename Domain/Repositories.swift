@@ -1,13 +1,25 @@
 import Foundation
 
-protocol MealRepository: Sendable {
-    func recentMeals() async throws -> [Meal]
+protocol FoodLogEntryRepository: Sendable {
+    func listRecentEntries(limit: Int) async -> [FoodLogEntry]
+    func listEntries(for date: Date) async -> [FoodLogEntry]
+    func listEntries(from startDate: Date, through endDate: Date) async -> [FoodLogEntry]
+    func save(_ entry: FoodLogEntry) async -> FoodLogEntry
+    func delete(id: FoodLogEntry.ID) async
 }
 
-protocol ExerciseRepository: Sendable {
-    func recentExercises() async throws -> [Exercise]
+protocol ExerciseLogEntryRepository: Sendable {
+    func listRecentEntries(limit: Int) async -> [ExerciseLogEntry]
+    func listEntries(for date: Date) async -> [ExerciseLogEntry]
+    func listEntries(from startDate: Date, through endDate: Date) async -> [ExerciseLogEntry]
+    func save(_ entry: ExerciseLogEntry) async -> ExerciseLogEntry
+    func delete(id: ExerciseLogEntry.ID) async
 }
 
-protocol BiometricsRepository: Sendable {
-    func recentEntries() async throws -> [BiometricsEntry]
+protocol BiometricsEntryRepository: Sendable {
+    func listRecentEntries(limit: Int) async -> [BiometricsEntry]
+    func listEntries(for date: Date) async -> [BiometricsEntry]
+    func listEntries(from startDate: Date, through endDate: Date) async -> [BiometricsEntry]
+    func save(_ entry: BiometricsEntry) async -> BiometricsEntry
+    func delete(id: BiometricsEntry.ID) async
 }
