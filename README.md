@@ -7,7 +7,7 @@ Tubby is an iOS-native, local-first companion app for tracking nutrition, exerci
 - SwiftUI app shell
 - App environment for dependency injection
 - Expressive domain models for food, exercise, and biometrics
-- Async in-memory repository contracts and implementations
+- Async repository contracts plus in-memory and SwiftData-backed implementations
 - Placeholder lookup providers for deferred network integrations
 - Swift Testing coverage for domain calculations and repository behavior
 
@@ -39,4 +39,4 @@ xcodebuild -scheme Tubby -destination 'platform=iOS Simulator,name=iPhone 16' te
 - All user data is intended to remain on device.
 - No accounts, sync, telemetry, ads, payments, or judgmental goal language are included in this foundation step.
 - Networked lookup integrations are intentionally deferred.
-- SwiftData persistence remains deferred until a later story.
+- SwiftData local persistence stores user logs on device and backs the live app environment.

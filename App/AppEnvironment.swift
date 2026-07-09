@@ -1,17 +1,21 @@
 import Foundation
+import SwiftData
 
-struct AppEnvironment: Sendable {
+struct AppEnvironment {
     var foodLogEntryRepository: any FoodLogEntryRepository
     var exerciseLogEntryRepository: any ExerciseLogEntryRepository
     var biometricsEntryRepository: any BiometricsEntryRepository
     var foodLookupProvider: any FoodLookupProviding
     var exerciseLookupProvider: any ExerciseLookupProviding
 
-    static let live = AppEnvironment(
-        foodLogEntryRepository: InMemoryFoodLogEntryRepository(),
-        exerciseLogEntryRepository: InMemoryExerciseLogEntryRepository(),
-        biometricsEntryRepository: InMemoryBiometricsEntryRepository(),
-        foodLookupProvider: NoopFoodLookupProvider(),
-        exerciseLookupProvider: NoopExerciseLookupProvider()
-    )
+    @MainActor
+    static func live(modelContext: ModelContext) -> AppEnvironment {
+        AppEnvironment(
+            foodLogEntryRepository: SwiftDataFoodLogEntryRepository(modelContext: modelContext),
+            exerciseLogEntryRepository: SwiftDataExerciseLogEntryRepository(modelContext: modelContext),
+            biometricsEntryRepository: SwiftDataBiometricsEntryRepository(modelContext: modelContext),
+            foodLookupProvider: NoopFoodLookupProvider(),
+            exerciseLookupProvider: NoopExerciseLookupProvider()
+        )
+    }
 }
