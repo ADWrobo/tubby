@@ -165,4 +165,17 @@ extension BiometricsKind {
             return "Waist measurement"
         }
     }
+
+    var unitLabel: String {
+        switch self {
+        case .weight:
+            return "lb"
+        case .systolicBloodPressure, .diastolicBloodPressure:
+            return "mmHg"
+        case .restingHeartRate:
+            return "bpm"
+        case .waistMeasurement:
+            return "in"
+        }
+    }
 }

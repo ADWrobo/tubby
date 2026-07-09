@@ -46,6 +46,16 @@ struct TodayView: View {
                     }
                     .buttonStyle(.plain)
 
+                    NavigationLink {
+                        BiometricsLogView(environment: environment)
+                    } label: {
+                        ActionCard(
+                            title: "Biometrics Log",
+                            detail: "Add and review biometric entries for the selected day."
+                        )
+                    }
+                    .buttonStyle(.plain)
+
                     if viewModel.isLoading && !viewModel.hasLoaded {
                         LoadingSummaryCard()
                     }
