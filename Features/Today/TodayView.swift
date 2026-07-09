@@ -2,6 +2,17 @@ import SwiftUI
 
 struct TodayView: View {
     let environment: AppEnvironment
+    @StateObject private var viewModel: TodayViewModel
+
+    init(environment: AppEnvironment) {
+        self.environment = environment
+        _viewModel = StateObject(wrappedValue: TodayViewModel(environment: environment))
+    }
+
+    init(environment: AppEnvironment, viewModel: TodayViewModel) {
+        self.environment = environment
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         NavigationStack {
@@ -16,7 +27,7 @@ struct TodayView: View {
                     }
 
                     NavigationLink {
-                        FoodLogView(repository: environment.foodLogEntryRepository)
+                        FoodLogView(environment: environment)
                     } label: {
                         ActionCard(
                             title: "Food Log",
@@ -25,14 +36,34 @@ struct TodayView: View {
                     }
                     .buttonStyle(.plain)
 
-                    SummaryCard(title: "Meals", detail: "No meals logged yet.")
-                    SummaryCard(title: "Exercise", detail: "No exercise logged yet.")
-                    SummaryCard(title: "Biometrics", detail: "No biometrics logged yet.")
+                    if viewModel.isLoading && !viewModel.hasLoaded {
+                        LoadingSummaryCard()
+                    }
+
+                    if let errorMessage = viewModel.errorMessage {
+                        SummaryCard(title: "Summary", lines: [errorMessage], systemImage: "exclamationmark.circle")
+                    }
+
+                    SummaryCard(title: "Meals", lines: viewModel.mealSummaryLines, systemImage: "fork.knife")
+                    SummaryCard(title: "Exercise", lines: viewModel.exerciseSummaryLines, systemImage: "figure.walk")
+                    SummaryCard(title: "Biometrics", lines: viewModel.biometricsSummaryLines, systemImage: "heart.text.square")
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             }
             .navigationTitle("Tubby")
+            .task {
+                await viewModel.loadSummary()
+            }
+            .onAppear {
+                guard viewModel.hasLoaded else { return }
+                Task {
+                    await viewModel.refresh()
+                }
+            }
+            .refreshable {
+                await viewModel.refresh()
+            }
         }
     }
 }
@@ -64,13 +95,37 @@ private struct ActionCard: View {
 
 private struct SummaryCard: View {
     let title: String
-    let detail: String
+    let lines: [String]
+    let systemImage: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(title)
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: systemImage)
                 .font(.headline)
-            Text(detail)
+                .foregroundStyle(.secondary)
+                .frame(width: 24)
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text(title)
+                    .font(.headline)
+
+                ForEach(lines, id: \.self) { line in
+                    Text(line)
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+}
+
+private struct LoadingSummaryCard: View {
+    var body: some View {
+        HStack(spacing: 12) {
+            ProgressView()
+            Text("Loading today's summary")
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
