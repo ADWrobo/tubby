@@ -1,6 +1,11 @@
 import Foundation
 import SwiftData
 
+enum SwiftDataRepositoryError: Error {
+    case saveFailed(Error)
+    case fetchFailed(Error)
+}
+
 @MainActor
 final class SwiftDataFoodLogEntryRepository: FoodLogEntryRepository {
     private let modelContext: ModelContext
@@ -11,9 +16,9 @@ final class SwiftDataFoodLogEntryRepository: FoodLogEntryRepository {
         self.calendar = calendar
     }
 
-    func listRecentEntries(limit: Int) async -> [FoodLogEntry] {
+    func listRecentEntries(limit: Int) async throws -> [FoodLogEntry] {
         guard limit > 0 else { return [] }
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             FoodLogEntryRecord.self,
             predicate: nil,
@@ -22,11 +27,11 @@ final class SwiftDataFoodLogEntryRepository: FoodLogEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func listEntries(for date: Date) async -> [FoodLogEntry] {
+    func listEntries(for date: Date) async throws -> [FoodLogEntry] {
         let interval = dateInterval(for: date)
         let start = interval.start
         let end = interval.end
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             FoodLogEntryRecord.self,
             predicate: #Predicate<FoodLogEntryRecord> {
@@ -36,10 +41,10 @@ final class SwiftDataFoodLogEntryRepository: FoodLogEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func listEntries(from startDate: Date, through endDate: Date) async -> [FoodLogEntry] {
+    func listEntries(from startDate: Date, through endDate: Date) async throws -> [FoodLogEntry] {
         let start = startDate
         let end = endDate
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             FoodLogEntryRecord.self,
             predicate: #Predicate<FoodLogEntryRecord> {
@@ -49,20 +54,20 @@ final class SwiftDataFoodLogEntryRepository: FoodLogEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func save(_ entry: FoodLogEntry) async -> FoodLogEntry {
-        if let record = fetchRecord(in: modelContext, id: entry.id) {
+    func save(_ entry: FoodLogEntry) async throws -> FoodLogEntry {
+        if let record = try fetchRecord(in: modelContext, id: entry.id) {
             update(record, from: entry)
         } else {
             modelContext.insert(FoodLogEntryRecord(domain: entry))
         }
-        saveContext()
+        try saveContext()
         return entry
     }
 
-    func delete(id: FoodLogEntry.ID) async {
-        if let record = fetchRecord(in: modelContext, id: id) {
+    func delete(id: FoodLogEntry.ID) async throws {
+        if let record = try fetchRecord(in: modelContext, id: id) {
             modelContext.delete(record)
-            saveContext()
+            try saveContext()
         }
     }
 
@@ -98,9 +103,9 @@ final class SwiftDataExerciseLogEntryRepository: ExerciseLogEntryRepository {
         self.calendar = calendar
     }
 
-    func listRecentEntries(limit: Int) async -> [ExerciseLogEntry] {
+    func listRecentEntries(limit: Int) async throws -> [ExerciseLogEntry] {
         guard limit > 0 else { return [] }
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             ExerciseLogEntryRecord.self,
             predicate: nil,
@@ -109,11 +114,11 @@ final class SwiftDataExerciseLogEntryRepository: ExerciseLogEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func listEntries(for date: Date) async -> [ExerciseLogEntry] {
+    func listEntries(for date: Date) async throws -> [ExerciseLogEntry] {
         let interval = dateInterval(for: date)
         let start = interval.start
         let end = interval.end
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             ExerciseLogEntryRecord.self,
             predicate: #Predicate<ExerciseLogEntryRecord> {
@@ -123,10 +128,10 @@ final class SwiftDataExerciseLogEntryRepository: ExerciseLogEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func listEntries(from startDate: Date, through endDate: Date) async -> [ExerciseLogEntry] {
+    func listEntries(from startDate: Date, through endDate: Date) async throws -> [ExerciseLogEntry] {
         let start = startDate
         let end = endDate
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             ExerciseLogEntryRecord.self,
             predicate: #Predicate<ExerciseLogEntryRecord> {
@@ -136,20 +141,20 @@ final class SwiftDataExerciseLogEntryRepository: ExerciseLogEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func save(_ entry: ExerciseLogEntry) async -> ExerciseLogEntry {
-        if let record = fetchRecord(in: modelContext, id: entry.id) {
+    func save(_ entry: ExerciseLogEntry) async throws -> ExerciseLogEntry {
+        if let record = try fetchRecord(in: modelContext, id: entry.id) {
             update(record, from: entry)
         } else {
             modelContext.insert(ExerciseLogEntryRecord(domain: entry))
         }
-        saveContext()
+        try saveContext()
         return entry
     }
 
-    func delete(id: ExerciseLogEntry.ID) async {
-        if let record = fetchRecord(in: modelContext, id: id) {
+    func delete(id: ExerciseLogEntry.ID) async throws {
+        if let record = try fetchRecord(in: modelContext, id: id) {
             modelContext.delete(record)
-            saveContext()
+            try saveContext()
         }
     }
 
@@ -179,9 +184,9 @@ final class SwiftDataBiometricsEntryRepository: BiometricsEntryRepository {
         self.calendar = calendar
     }
 
-    func listRecentEntries(limit: Int) async -> [BiometricsEntry] {
+    func listRecentEntries(limit: Int) async throws -> [BiometricsEntry] {
         guard limit > 0 else { return [] }
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             BiometricsEntryRecord.self,
             predicate: nil,
@@ -190,11 +195,11 @@ final class SwiftDataBiometricsEntryRepository: BiometricsEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func listEntries(for date: Date) async -> [BiometricsEntry] {
+    func listEntries(for date: Date) async throws -> [BiometricsEntry] {
         let interval = dateInterval(for: date)
         let start = interval.start
         let end = interval.end
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             BiometricsEntryRecord.self,
             predicate: #Predicate<BiometricsEntryRecord> {
@@ -204,10 +209,10 @@ final class SwiftDataBiometricsEntryRepository: BiometricsEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func listEntries(from startDate: Date, through endDate: Date) async -> [BiometricsEntry] {
+    func listEntries(from startDate: Date, through endDate: Date) async throws -> [BiometricsEntry] {
         let start = startDate
         let end = endDate
-        return fetchRecords(
+        return try fetchRecords(
             in: modelContext,
             BiometricsEntryRecord.self,
             predicate: #Predicate<BiometricsEntryRecord> {
@@ -217,20 +222,20 @@ final class SwiftDataBiometricsEntryRepository: BiometricsEntryRepository {
         ).compactMap(\.domainValue)
     }
 
-    func save(_ entry: BiometricsEntry) async -> BiometricsEntry {
-        if let record = fetchRecord(in: modelContext, id: entry.id) {
+    func save(_ entry: BiometricsEntry) async throws -> BiometricsEntry {
+        if let record = try fetchRecord(in: modelContext, id: entry.id) {
             update(record, from: entry)
         } else {
             modelContext.insert(BiometricsEntryRecord(domain: entry))
         }
-        saveContext()
+        try saveContext()
         return entry
     }
 
-    func delete(id: BiometricsEntry.ID) async {
-        if let record = fetchRecord(in: modelContext, id: id) {
+    func delete(id: BiometricsEntry.ID) async throws {
+        if let record = try fetchRecord(in: modelContext, id: id) {
             modelContext.delete(record)
-            saveContext()
+            try saveContext()
         }
     }
 
@@ -248,20 +253,32 @@ final class SwiftDataBiometricsEntryRepository: BiometricsEntryRepository {
 }
 
 private extension SwiftDataFoodLogEntryRepository {
-    func saveContext() {
-        try? modelContext.save()
+    func saveContext() throws {
+        do {
+            try modelContext.save()
+        } catch {
+            throw SwiftDataRepositoryError.saveFailed(error)
+        }
     }
 }
 
 private extension SwiftDataExerciseLogEntryRepository {
-    func saveContext() {
-        try? modelContext.save()
+    func saveContext() throws {
+        do {
+            try modelContext.save()
+        } catch {
+            throw SwiftDataRepositoryError.saveFailed(error)
+        }
     }
 }
 
 private extension SwiftDataBiometricsEntryRepository {
-    func saveContext() {
-        try? modelContext.save()
+    func saveContext() throws {
+        do {
+            try modelContext.save()
+        } catch {
+            throw SwiftDataRepositoryError.saveFailed(error)
+        }
     }
 }
 
@@ -271,17 +288,21 @@ private func fetchRecords<T: PersistentModel>(
     predicate: Predicate<T>? = nil,
     sortBy: [SortDescriptor<T>] = [],
     fetchLimit: Int? = nil
-) -> [T] {
+) throws -> [T] {
     var descriptor = FetchDescriptor<T>(predicate: predicate, sortBy: sortBy)
     if let fetchLimit {
         descriptor.fetchLimit = fetchLimit
     }
-    return (try? context.fetch(descriptor)) ?? []
+    do {
+        return try context.fetch(descriptor)
+    } catch {
+        throw SwiftDataRepositoryError.fetchFailed(error)
+    }
 }
 
 private extension SwiftDataFoodLogEntryRepository {
-    func fetchRecord(in context: ModelContext, id: UUID) -> FoodLogEntryRecord? {
-        fetchRecords(
+    func fetchRecord(in context: ModelContext, id: UUID) throws -> FoodLogEntryRecord? {
+        try fetchRecords(
             in: context,
             FoodLogEntryRecord.self,
             predicate: #Predicate<FoodLogEntryRecord> { $0.id == id }
@@ -290,8 +311,8 @@ private extension SwiftDataFoodLogEntryRepository {
 }
 
 private extension SwiftDataExerciseLogEntryRepository {
-    func fetchRecord(in context: ModelContext, id: UUID) -> ExerciseLogEntryRecord? {
-        fetchRecords(
+    func fetchRecord(in context: ModelContext, id: UUID) throws -> ExerciseLogEntryRecord? {
+        try fetchRecords(
             in: context,
             ExerciseLogEntryRecord.self,
             predicate: #Predicate<ExerciseLogEntryRecord> { $0.id == id }
@@ -300,8 +321,8 @@ private extension SwiftDataExerciseLogEntryRepository {
 }
 
 private extension SwiftDataBiometricsEntryRepository {
-    func fetchRecord(in context: ModelContext, id: UUID) -> BiometricsEntryRecord? {
-        fetchRecords(
+    func fetchRecord(in context: ModelContext, id: UUID) throws -> BiometricsEntryRecord? {
+        try fetchRecords(
             in: context,
             BiometricsEntryRecord.self,
             predicate: #Predicate<BiometricsEntryRecord> { $0.id == id }

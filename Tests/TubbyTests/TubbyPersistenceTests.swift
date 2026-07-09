@@ -46,7 +46,7 @@ struct TubbyPersistenceTests {
     }
 
     @MainActor
-    @Test func swiftDataFoodRepositorySavesListsAndDeletes() async {
+    @Test func swiftDataFoodRepositorySavesListsAndDeletes() async throws {
         let container = makeContainer()
         let repository = SwiftDataFoodLogEntryRepository(modelContext: container.mainContext, calendar: Self.utcCalendar)
 
@@ -72,21 +72,21 @@ struct TubbyPersistenceTests {
             servings: 2
         )
 
-        _ = await repository.save(dayEntry)
-        _ = await repository.save(nextDayEntry)
-        _ = await repository.save(updatedDayEntry)
+        _ = try await repository.save(dayEntry)
+        _ = try await repository.save(nextDayEntry)
+        _ = try await repository.save(updatedDayEntry)
 
-        let recent = await repository.listRecentEntries(limit: 10)
+        let recent = try await repository.listRecentEntries(limit: 10)
         #expect(recent == [nextDayEntry, updatedDayEntry])
-        #expect(await repository.listEntries(for: Self.day) == [updatedDayEntry])
-        #expect(await repository.listEntries(from: Self.day, through: Self.nextDay) == [nextDayEntry, updatedDayEntry])
+        #expect(try await repository.listEntries(for: Self.day) == [updatedDayEntry])
+        #expect(try await repository.listEntries(from: Self.day, through: Self.nextDay) == [nextDayEntry, updatedDayEntry])
 
-        await repository.delete(id: updatedDayEntry.id)
-        #expect(await repository.listRecentEntries(limit: 10) == [nextDayEntry])
+        try await repository.delete(id: updatedDayEntry.id)
+        #expect(try await repository.listRecentEntries(limit: 10) == [nextDayEntry])
     }
 
     @MainActor
-    @Test func swiftDataExerciseRepositorySavesListsAndDeletes() async {
+    @Test func swiftDataExerciseRepositorySavesListsAndDeletes() async throws {
         let container = makeContainer()
         let repository = SwiftDataExerciseLogEntryRepository(modelContext: container.mainContext, calendar: Self.utcCalendar)
 
@@ -115,21 +115,21 @@ struct TubbyPersistenceTests {
             intensity: .light
         )
 
-        _ = await repository.save(dayEntry)
-        _ = await repository.save(nextDayEntry)
-        _ = await repository.save(updatedDayEntry)
+        _ = try await repository.save(dayEntry)
+        _ = try await repository.save(nextDayEntry)
+        _ = try await repository.save(updatedDayEntry)
 
-        let recent = await repository.listRecentEntries(limit: 10)
+        let recent = try await repository.listRecentEntries(limit: 10)
         #expect(recent == [nextDayEntry, updatedDayEntry])
-        #expect(await repository.listEntries(for: Self.day) == [updatedDayEntry])
-        #expect(await repository.listEntries(from: Self.day, through: Self.nextDay) == [nextDayEntry, updatedDayEntry])
+        #expect(try await repository.listEntries(for: Self.day) == [updatedDayEntry])
+        #expect(try await repository.listEntries(from: Self.day, through: Self.nextDay) == [nextDayEntry, updatedDayEntry])
 
-        await repository.delete(id: updatedDayEntry.id)
-        #expect(await repository.listRecentEntries(limit: 10) == [nextDayEntry])
+        try await repository.delete(id: updatedDayEntry.id)
+        #expect(try await repository.listRecentEntries(limit: 10) == [nextDayEntry])
     }
 
     @MainActor
-    @Test func swiftDataBiometricsRepositorySavesListsAndDeletes() async {
+    @Test func swiftDataBiometricsRepositorySavesListsAndDeletes() async throws {
         let container = makeContainer()
         let repository = SwiftDataBiometricsEntryRepository(modelContext: container.mainContext, calendar: Self.utcCalendar)
 
@@ -152,17 +152,17 @@ struct TubbyPersistenceTests {
             value: 32
         )
 
-        _ = await repository.save(dayEntry)
-        _ = await repository.save(nextDayEntry)
-        _ = await repository.save(updatedDayEntry)
+        _ = try await repository.save(dayEntry)
+        _ = try await repository.save(nextDayEntry)
+        _ = try await repository.save(updatedDayEntry)
 
-        let recent = await repository.listRecentEntries(limit: 10)
+        let recent = try await repository.listRecentEntries(limit: 10)
         #expect(recent == [nextDayEntry, updatedDayEntry])
-        #expect(await repository.listEntries(for: Self.day) == [updatedDayEntry])
-        #expect(await repository.listEntries(from: Self.day, through: Self.nextDay) == [nextDayEntry, updatedDayEntry])
+        #expect(try await repository.listEntries(for: Self.day) == [updatedDayEntry])
+        #expect(try await repository.listEntries(from: Self.day, through: Self.nextDay) == [nextDayEntry, updatedDayEntry])
 
-        await repository.delete(id: updatedDayEntry.id)
-        #expect(await repository.listRecentEntries(limit: 10) == [nextDayEntry])
+        try await repository.delete(id: updatedDayEntry.id)
+        #expect(try await repository.listRecentEntries(limit: 10) == [nextDayEntry])
     }
 
     private func makeContainer() -> ModelContainer {

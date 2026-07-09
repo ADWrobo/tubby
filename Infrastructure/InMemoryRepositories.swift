@@ -8,25 +8,25 @@ actor InMemoryFoodLogEntryRepository: FoodLogEntryRepository {
         self.calendar = calendar
     }
 
-    func listRecentEntries(limit: Int) async -> [FoodLogEntry] {
+    func listRecentEntries(limit: Int) async throws -> [FoodLogEntry] {
         guard limit > 0 else { return [] }
         return Array(sortedEntries.prefix(limit))
     }
 
-    func listEntries(for date: Date) async -> [FoodLogEntry] {
+    func listEntries(for date: Date) async throws -> [FoodLogEntry] {
         filteredEntries(for: dateInterval(for: date))
     }
 
-    func listEntries(from startDate: Date, through endDate: Date) async -> [FoodLogEntry] {
+    func listEntries(from startDate: Date, through endDate: Date) async throws -> [FoodLogEntry] {
         sortedEntries.filter { $0.loggedAt >= startDate && $0.loggedAt <= endDate }
     }
 
-    func save(_ entry: FoodLogEntry) async -> FoodLogEntry {
+    func save(_ entry: FoodLogEntry) async throws -> FoodLogEntry {
         upsert(entry, into: &entries)
         return entry
     }
 
-    func delete(id: FoodLogEntry.ID) async {
+    func delete(id: FoodLogEntry.ID) async throws {
         entries.removeAll { $0.id == id }
     }
 
@@ -53,25 +53,25 @@ actor InMemoryExerciseLogEntryRepository: ExerciseLogEntryRepository {
         self.calendar = calendar
     }
 
-    func listRecentEntries(limit: Int) async -> [ExerciseLogEntry] {
+    func listRecentEntries(limit: Int) async throws -> [ExerciseLogEntry] {
         guard limit > 0 else { return [] }
         return Array(sortedEntries.prefix(limit))
     }
 
-    func listEntries(for date: Date) async -> [ExerciseLogEntry] {
+    func listEntries(for date: Date) async throws -> [ExerciseLogEntry] {
         filteredEntries(for: dateInterval(for: date))
     }
 
-    func listEntries(from startDate: Date, through endDate: Date) async -> [ExerciseLogEntry] {
+    func listEntries(from startDate: Date, through endDate: Date) async throws -> [ExerciseLogEntry] {
         sortedEntries.filter { $0.loggedAt >= startDate && $0.loggedAt <= endDate }
     }
 
-    func save(_ entry: ExerciseLogEntry) async -> ExerciseLogEntry {
+    func save(_ entry: ExerciseLogEntry) async throws -> ExerciseLogEntry {
         upsert(entry, into: &entries)
         return entry
     }
 
-    func delete(id: ExerciseLogEntry.ID) async {
+    func delete(id: ExerciseLogEntry.ID) async throws {
         entries.removeAll { $0.id == id }
     }
 
@@ -98,25 +98,25 @@ actor InMemoryBiometricsEntryRepository: BiometricsEntryRepository {
         self.calendar = calendar
     }
 
-    func listRecentEntries(limit: Int) async -> [BiometricsEntry] {
+    func listRecentEntries(limit: Int) async throws -> [BiometricsEntry] {
         guard limit > 0 else { return [] }
         return Array(sortedEntries.prefix(limit))
     }
 
-    func listEntries(for date: Date) async -> [BiometricsEntry] {
+    func listEntries(for date: Date) async throws -> [BiometricsEntry] {
         filteredEntries(for: dateInterval(for: date))
     }
 
-    func listEntries(from startDate: Date, through endDate: Date) async -> [BiometricsEntry] {
+    func listEntries(from startDate: Date, through endDate: Date) async throws -> [BiometricsEntry] {
         sortedEntries.filter { $0.loggedAt >= startDate && $0.loggedAt <= endDate }
     }
 
-    func save(_ entry: BiometricsEntry) async -> BiometricsEntry {
+    func save(_ entry: BiometricsEntry) async throws -> BiometricsEntry {
         upsert(entry, into: &entries)
         return entry
     }
 
-    func delete(id: BiometricsEntry.ID) async {
+    func delete(id: BiometricsEntry.ID) async throws {
         entries.removeAll { $0.id == id }
     }
 

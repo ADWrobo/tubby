@@ -113,7 +113,7 @@ struct TubbyDomainTests {
         #expect(summary.exerciseEstimateTotals.caloriesBurned == Calories(120))
     }
 
-    @Test func inMemoryRepositoriesSaveListAndDelete() async {
+    @Test func inMemoryRepositoriesSaveListAndDelete() async throws {
         let repository = InMemoryFoodLogEntryRepository(calendar: Self.utcCalendar)
         let dayOneEntry = FoodLogEntry(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000000501")!,
@@ -138,19 +138,19 @@ struct TubbyDomainTests {
             servings: 1
         )
 
-        _ = await repository.save(dayOneEntry)
-        _ = await repository.save(dayTwoEntry)
+        _ = try await repository.save(dayOneEntry)
+        _ = try await repository.save(dayTwoEntry)
 
-        let recent = await repository.listRecentEntries(limit: 10)
+        let recent = try await repository.listRecentEntries(limit: 10)
         #expect(recent == [dayTwoEntry, dayOneEntry])
-        #expect(await repository.listEntries(for: Self.day) == [dayOneEntry])
-        #expect(await repository.listEntries(from: Self.day, through: Self.nextDay) == [dayTwoEntry, dayOneEntry])
+        #expect(try await repository.listEntries(for: Self.day) == [dayOneEntry])
+        #expect(try await repository.listEntries(from: Self.day, through: Self.nextDay) == [dayTwoEntry, dayOneEntry])
 
-        await repository.delete(id: dayOneEntry.id)
-        #expect(await repository.listRecentEntries(limit: 10) == [dayTwoEntry])
+        try await repository.delete(id: dayOneEntry.id)
+        #expect(try await repository.listRecentEntries(limit: 10) == [dayTwoEntry])
     }
 
-    @Test func exerciseAndBiometricsRepositoriesBehaveLikeInMemoryStores() async {
+    @Test func exerciseAndBiometricsRepositoriesBehaveLikeInMemoryStores() async throws {
         let exerciseRepository = InMemoryExerciseLogEntryRepository(calendar: Self.utcCalendar)
         let biometricsRepository = InMemoryBiometricsEntryRepository(calendar: Self.utcCalendar)
 
@@ -172,17 +172,17 @@ struct TubbyDomainTests {
             kind: .restingHeartRate
         )
 
-        _ = await exerciseRepository.save(exerciseEntry)
-        _ = await biometricsRepository.save(biometricsEntry)
+        _ = try await exerciseRepository.save(exerciseEntry)
+        _ = try await biometricsRepository.save(biometricsEntry)
 
-        #expect(await exerciseRepository.listRecentEntries(limit: 5) == [exerciseEntry])
-        #expect(await biometricsRepository.listEntries(for: Self.day) == [biometricsEntry])
+        #expect(try await exerciseRepository.listRecentEntries(limit: 5) == [exerciseEntry])
+        #expect(try await biometricsRepository.listEntries(for: Self.day) == [biometricsEntry])
 
-        await exerciseRepository.delete(id: exerciseEntry.id)
-        await biometricsRepository.delete(id: biometricsEntry.id)
+        try await exerciseRepository.delete(id: exerciseEntry.id)
+        try await biometricsRepository.delete(id: biometricsEntry.id)
 
-        let emptyExercises = await exerciseRepository.listRecentEntries(limit: 5)
-        let emptyBiometrics = await biometricsRepository.listRecentEntries(limit: 5)
+        let emptyExercises = try await exerciseRepository.listRecentEntries(limit: 5)
+        let emptyBiometrics = try await biometricsRepository.listRecentEntries(limit: 5)
         #expect(emptyExercises.isEmpty)
         #expect(emptyBiometrics.isEmpty)
     }

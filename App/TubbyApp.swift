@@ -1,4 +1,3 @@
-#if !canImport(XCTest)
 import SwiftUI
 import SwiftData
 
@@ -28,4 +27,3 @@ struct TubbyApp: App {
         )
     }
 }
-#endif
