@@ -60,6 +60,27 @@ struct FoodLogFeatureTests {
         #expect(entry.foodItem.nutritionFacts.sodium == nil)
     }
 
+    @Test func wholeAndDecimalNutritionValuesFormatStably() {
+        #expect(ManualEntryFormatting.decimalString(250) == "250")
+        #expect(ManualEntryFormatting.decimalString(7.5) == "7.5")
+    }
+
+    @Test func blankServingsAreRejectedWithCalmValidation() {
+        let draft = FoodLogEntryDraft(
+            foodName: "Oatmeal",
+            servingsText: "   "
+        )
+
+        do {
+            _ = try draft.makeEntry()
+            #expect(Bool(false))
+        } catch FoodLogEntryDraft.ValidationError.missingServings {
+            #expect(Bool(true))
+        } catch {
+            #expect(Bool(false))
+        }
+    }
+
     @Test func numericNutritionFieldsMapToCorrectWrappers() throws {
         let draft = FoodLogEntryDraft(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000004101")!,

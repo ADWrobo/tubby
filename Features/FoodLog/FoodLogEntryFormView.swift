@@ -54,6 +54,9 @@ struct FoodLogEntryFormView: View {
                 }
 
                 Section("Logged") {
+                    Text("Select when this entry was logged.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                     DatePicker("Date and time", selection: $draft.loggedAt, displayedComponents: [.date, .hourAndMinute])
                 }
 
