@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1B2C3D41F00000100000001 /* TubbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000001 /* TubbyApp.swift */; };
+		A1B2C3D41F00000100000002 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000002 /* AppEnvironment.swift */; };
+		A1B2C3D41F00000100000003 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000003 /* Meal.swift */; };
+		A1B2C3D41F00000100000004 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000004 /* Exercise.swift */; };
+		A1B2C3D41F00000100000005 /* BiometricsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000005 /* BiometricsEntry.swift */; };
+		A1B2C3D41F00000100000006 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000006 /* Repositories.swift */; };
+		A1B2C3D41F00000100000007 /* LookupProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000007 /* LookupProviders.swift */; };
+		A1B2C3D41F00000100000008 /* InMemoryRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000008 /* InMemoryRepositories.swift */; };
+		A1B2C3D41F00000100000009 /* PersistenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000009 /* PersistenceModels.swift */; };
+		A1B2C3D41F0000010000000A /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000A /* TodayView.swift */; };
+		A1B2C3D41F0000010000000B /* TubbySmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000000B /* TubbySmokeTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1B2C3D31F00000100000001 /* TubbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/TubbyApp.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000002 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/AppEnvironment.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000003 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Meal.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000004 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Exercise.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000005 /* BiometricsEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/BiometricsEntry.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000006 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain/Repositories.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000007 /* LookupProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lookup/LookupProviders.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000008 /* InMemoryRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure/InMemoryRepositories.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000009 /* PersistenceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence/PersistenceModels.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000000A /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/Today/TodayView.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000000B /* TubbySmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests/TubbyTests/TubbySmokeTests.swift; sourceTree = "<group>"; };
+		A1B2C3D31F00000100000010 /* Tubby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Tubby.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D31F00000100000011 /* TubbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = TubbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1B2C3D21F00000100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D21F00000100000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1B2C3D11F00000100000001 = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D11F00000100000002 /* Tubby */,
+				A1B2C3D11F00000100000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B2C3D11F00000100000002 /* Tubby */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D31F00000100000001 /* TubbyApp.swift */,
+				A1B2C3D31F00000100000002 /* AppEnvironment.swift */,
+				A1B2C3D31F00000100000003 /* Meal.swift */,
+				A1B2C3D31F00000100000004 /* Exercise.swift */,
+				A1B2C3D31F00000100000005 /* BiometricsEntry.swift */,
+				A1B2C3D31F00000100000006 /* Repositories.swift */,
+				A1B2C3D31F00000100000007 /* LookupProviders.swift */,
+				A1B2C3D31F00000100000008 /* InMemoryRepositories.swift */,
+				A1B2C3D31F00000100000009 /* PersistenceModels.swift */,
+				A1B2C3D31F0000010000000A /* TodayView.swift */,
+				A1B2C3D11F00000100000004 /* TubbyTests */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B2C3D11F00000100000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D31F00000100000010 /* Tubby.app */,
+				A1B2C3D31F00000100000011 /* TubbyTests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		A1B2C3D11F00000100000004 /* TubbyTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D31F0000010000000B /* TubbySmokeTests.swift */,
+			);
+			path = Tests/TubbyTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1B2C3D01F00000100000001 /* Tubby */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3D61F00000100000001 /* Build configuration list for PBXNativeTarget "Tubby" */;
+			buildPhases = (
+				A1B2C3D41F00000100000010 /* Sources */,
+				A1B2C3D21F00000100000001 /* Frameworks */,
+				A1B2C3D51F00000100000001 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = Tubby;
+			productName = Tubby;
+			productReference = A1B2C3D31F00000100000010 /* Tubby.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A1B2C3D01F00000100000002 /* TubbyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1B2C3D61F00000100000002 /* Build configuration list for PBXNativeTarget "TubbyTests" */;
+			buildPhases = (
+				A1B2C3D41F00000100000011 /* Sources */,
+				A1B2C3D21F00000100000002 /* Frameworks */,
+				A1B2C3D51F00000100000002 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = (
+				A1B2C3D71F00000100000001 /* PBXTargetDependency */,
+			);
+			name = TubbyTests;
+			productName = TubbyTests;
+			productReference = A1B2C3D31F00000100000011 /* TubbyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1B2C3CF1F00000100000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					A1B2C3D01F00000100000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A1B2C3D01F00000100000002 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = A1B2C3D61F00000100000003 /* Build configuration list for PBXProject "Tubby" */;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1B2C3D11F00000100000001;
+			productRefGroup = A1B2C3D11F00000100000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1B2C3D01F00000100000001 /* Tubby */,
+				A1B2C3D01F00000100000002 /* TubbyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1B2C3D51F00000100000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D51F00000100000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1B2C3D41F00000100000010 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D41F00000100000001 /* TubbyApp.swift in Sources */,
+				A1B2C3D41F00000100000002 /* AppEnvironment.swift in Sources */,
+				A1B2C3D41F00000100000003 /* Meal.swift in Sources */,
+				A1B2C3D41F00000100000004 /* Exercise.swift in Sources */,
+				A1B2C3D41F00000100000005 /* BiometricsEntry.swift in Sources */,
+				A1B2C3D41F00000100000006 /* Repositories.swift in Sources */,
+				A1B2C3D41F00000100000007 /* LookupProviders.swift in Sources */,
+				A1B2C3D41F00000100000008 /* InMemoryRepositories.swift in Sources */,
+				A1B2C3D41F00000100000009 /* PersistenceModels.swift in Sources */,
+				A1B2C3D41F0000010000000A /* TodayView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D41F00000100000011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D41F0000010000000B /* TubbySmokeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1B2C3D71F00000100000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B2C3D01F00000100000001 /* Tubby */;
+			targetProxy = A1B2C3D81F00000100000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		A1B2C3D81F00000100000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B2C3CF1F00000100000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B2C3D01F00000100000001;
+			remoteInfo = Tubby;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin XCBuildConfiguration section */
+		A1B2C3D91F00000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubby.app;
+				PRODUCT_NAME = Tubby;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1B2C3D91F00000100000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubby.app;
+				PRODUCT_NAME = Tubby;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A1B2C3D91F00000100000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubby.app.tests;
+				PRODUCT_NAME = TubbyTests;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tubby.app/Tubby";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1B2C3D91F00000100000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@loader_path/Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubby.app.tests;
+				PRODUCT_NAME = TubbyTests;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tubby.app/Tubby";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A1B2C3D91F00000100000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubby.app;
+				PRODUCT_NAME = Tubby;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+			};
+			name = Debug;
+		};
+		A1B2C3D91F00000100000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubby.app;
+				PRODUCT_NAME = Tubby;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+			};
+			name = Release;
+		};
+		A1B2C3D91F00000100000007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubby.app.tests;
+				PRODUCT_NAME = TubbyTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tubby.app/Tubby";
+			};
+			name = Debug;
+		};
+		A1B2C3D91F00000100000008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tubby.app.tests;
+				PRODUCT_NAME = TubbyTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tubby.app/Tubby";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1B2C3D61F00000100000001 /* Build configuration list for PBXNativeTarget "Tubby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D91F00000100000001 /* Debug */,
+				A1B2C3D91F00000100000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3D61F00000100000002 /* Build configuration list for PBXNativeTarget "TubbyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D91F00000100000003 /* Debug */,
+				A1B2C3D91F00000100000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B2C3D61F00000100000003 /* Build configuration list for PBXProject "Tubby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1B2C3D91F00000100000005 /* Debug */,
+				A1B2C3D91F00000100000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1B2C3CF1F00000100000001 /* Project object */;
+}
