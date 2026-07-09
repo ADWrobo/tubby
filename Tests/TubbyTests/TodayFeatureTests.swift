@@ -22,9 +22,9 @@ struct TodayFeatureTests {
 
         await viewModel.loadSummary()
 
-        #expect(viewModel.mealSummaryLines == ["No food entries yet"])
-        #expect(viewModel.exerciseSummaryLines == ["No exercise entries yet"])
-        #expect(viewModel.biometricsSummaryLines == ["No biometric entries yet"])
+        #expect(viewModel.mealSummaryLines == ["No recent food entries"])
+        #expect(viewModel.exerciseSummaryLines == ["No recent exercise entries"])
+        #expect(viewModel.biometricsSummaryLines == ["No recent biometrics entries"])
         #expect(viewModel.errorMessage == nil)
     }
 
@@ -139,8 +139,8 @@ struct TodayFeatureTests {
 
         await viewModel.loadSummary()
 
-        #expect(viewModel.errorMessage == "We couldn't load today's summary. Please try again.")
-        #expect(viewModel.mealSummaryLines == ["No food entries yet"])
+        #expect(viewModel.errorMessage == "We couldn't load the summary. Please try again.")
+        #expect(viewModel.mealSummaryLines == ["No recent food entries"])
     }
 
     @MainActor

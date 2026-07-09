@@ -80,7 +80,7 @@ private enum FoodLogViewError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .load:
-            return "We couldn't load food entries. Please try again."
+            return "We couldn't load recent food entries. Please try again."
         case .save:
             return "We couldn't save this entry. Please try again."
         case .delete:

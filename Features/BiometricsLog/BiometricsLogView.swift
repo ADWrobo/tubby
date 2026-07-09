@@ -19,9 +19,9 @@ struct BiometricsLogView: View {
     var body: some View {
         List {
             Section {
-                DatePicker("Day", selection: $viewModel.selectedDate, displayedComponents: [.date])
+                DatePicker("Recent day", selection: $viewModel.selectedDate, displayedComponents: [.date])
             } header: {
-                Text("Date")
+                Text("Recent")
             }
 
             if let errorMessage = viewModel.errorMessage {
@@ -32,20 +32,20 @@ struct BiometricsLogView: View {
 
             if viewModel.isLoading && viewModel.entries.isEmpty {
                 Section {
-                    HStack {
-                        Spacer()
-                        ProgressView("Loading entries")
-                        Spacer()
+                        HStack {
+                            Spacer()
+                        ProgressView("Loading recent entries")
+                            Spacer()
+                        }
                     }
-                }
-            } else if viewModel.entries.isEmpty {
-                Section {
-                    ContentUnavailableView(
-                        "No biometric entries yet",
-                        systemImage: "heart.text.square",
-                        description: Text("Add a biometric entry for this day.")
-                    )
-                }
+                } else if viewModel.entries.isEmpty {
+                    Section {
+                        ContentUnavailableView(
+                            "No recent biometrics entries",
+                            systemImage: "heart.text.square",
+                            description: Text("Add a biometrics entry for this day.")
+                        )
+                    }
             } else {
                 Section {
                     ForEach(viewModel.entries) { entry in
@@ -77,7 +77,7 @@ struct BiometricsLogView: View {
                 Button {
                     draft = BiometricsEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add measurement", systemImage: "plus")
                 }
             }
         }
@@ -89,7 +89,7 @@ struct BiometricsLogView: View {
                 Button {
                     draft = BiometricsEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add measurement", systemImage: "plus")
                 }
             }
         }

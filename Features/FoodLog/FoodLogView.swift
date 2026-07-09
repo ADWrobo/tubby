@@ -19,9 +19,9 @@ struct FoodLogView: View {
     var body: some View {
         List {
             Section {
-                DatePicker("Day", selection: $viewModel.selectedDate, displayedComponents: [.date])
+                DatePicker("Recent day", selection: $viewModel.selectedDate, displayedComponents: [.date])
             } header: {
-                Text("Date")
+                Text("Recent")
             }
 
             if let errorMessage = viewModel.errorMessage {
@@ -32,20 +32,20 @@ struct FoodLogView: View {
 
             if viewModel.isLoading && viewModel.entries.isEmpty {
                 Section {
-                    HStack {
-                        Spacer()
-                        ProgressView("Loading entries")
-                        Spacer()
+                        HStack {
+                            Spacer()
+                        ProgressView("Loading recent entries")
+                            Spacer()
+                        }
                     }
-                }
-            } else if viewModel.entries.isEmpty {
-                Section {
-                    ContentUnavailableView(
-                        "No food entries yet",
-                        systemImage: "fork.knife",
-                        description: Text("Add a meal or snack for this day.")
-                    )
-                }
+                } else if viewModel.entries.isEmpty {
+                    Section {
+                        ContentUnavailableView(
+                            "No recent food entries",
+                            systemImage: "fork.knife",
+                            description: Text("Add a food entry for this day.")
+                        )
+                    }
             } else {
                 Section {
                     ForEach(viewModel.entries) { entry in
@@ -77,7 +77,7 @@ struct FoodLogView: View {
                 Button {
                     draft = FoodLogEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add food", systemImage: "plus")
                 }
             }
         }
@@ -89,7 +89,7 @@ struct FoodLogView: View {
                 Button {
                     draft = FoodLogEntryDraft(loggedAt: viewModel.selectedDate)
                 } label: {
-                    Label("Add", systemImage: "plus")
+                    Label("Add food", systemImage: "plus")
                 }
             }
         }
@@ -100,9 +100,9 @@ struct FoodLogView: View {
         .sheet(item: $draft, onDismiss: {
             draft = nil
         }) { draftItem in
-            FoodLogEntryFormView(
-                mode: draftItem.mode == .add ? .add : .edit,
-                draft: draftItem,
+                FoodLogEntryFormView(
+                    mode: draftItem.mode == .add ? .add : .edit,
+                    draft: draftItem,
                 onSave: { updatedDraft in
                     try await viewModel.save(updatedDraft)
                 }
@@ -134,7 +134,7 @@ private struct FoodLogEntryRow: View {
                     .foregroundStyle(.secondary)
 
                 if let calories = entry.foodItem.nutritionFacts.calories {
-                    Text("\(calories.value, format: .number) calories")
+                    Text("\(calories.value, format: .number) calorie estimate")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }

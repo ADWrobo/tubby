@@ -8,9 +8,9 @@ struct FoodLogEntryFormView: View {
         var title: String {
             switch self {
             case .add:
-                return "Add Food Entry"
+                return "Add food"
             case .edit:
-                return "Edit Food Entry"
+                return "Edit food"
             }
         }
     }
@@ -38,7 +38,7 @@ struct FoodLogEntryFormView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Food") {
+                Section("Food details") {
                     TextField("Food name", text: $draft.foodName)
 #if os(iOS)
                         .textInputAutocapitalization(.words)
@@ -65,13 +65,13 @@ struct FoodLogEntryFormView: View {
                 }
 
                 Section("Nutrition estimate") {
-                    optionalNumberField("Calories", text: $draft.caloriesText)
-                    optionalNumberField("Protein (g)", text: $draft.proteinText)
-                    optionalNumberField("Carbohydrates (g)", text: $draft.carbohydratesText)
-                    optionalNumberField("Fat (g)", text: $draft.fatText)
-                    optionalNumberField("Fiber (g)", text: $draft.fiberText)
-                    optionalNumberField("Sugar (g)", text: $draft.sugarText)
-                    optionalNumberField("Sodium (mg)", text: $draft.sodiumText)
+                    optionalNumberField("Calories estimate", text: $draft.caloriesText)
+                    optionalNumberField("Protein estimate (g)", text: $draft.proteinText)
+                    optionalNumberField("Carbohydrates estimate (g)", text: $draft.carbohydratesText)
+                    optionalNumberField("Fat estimate (g)", text: $draft.fatText)
+                    optionalNumberField("Fiber estimate (g)", text: $draft.fiberText)
+                    optionalNumberField("Sugar estimate (g)", text: $draft.sugarText)
+                    optionalNumberField("Sodium estimate (mg)", text: $draft.sodiumText)
                 }
 
                 if let errorMessage {
