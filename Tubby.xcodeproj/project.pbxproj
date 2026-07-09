@@ -29,6 +29,11 @@
 		A1B2C3D41F00000100000017 /* ExerciseLogEntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000017 /* ExerciseLogEntryFormView.swift */; };
 		A1B2C3D41F00000100000018 /* ExerciseLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000018 /* ExerciseLogView.swift */; };
 		A1B2C3D41F00000100000019 /* ExerciseLogFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F00000100000019 /* ExerciseLogFeatureTests.swift */; };
+		A1B2C3D41F0000010000001A /* BiometricsEntryDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001A /* BiometricsEntryDraft.swift */; };
+		A1B2C3D41F0000010000001B /* BiometricsLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001B /* BiometricsLogViewModel.swift */; };
+		A1B2C3D41F0000010000001C /* BiometricsEntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001C /* BiometricsEntryFormView.swift */; };
+		A1B2C3D41F0000010000001D /* BiometricsLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001D /* BiometricsLogView.swift */; };
+		A1B2C3D41F0000010000001E /* BiometricsLogFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001E /* BiometricsLogFeatureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +60,11 @@
 		A1B2C3D31F00000100000017 /* ExerciseLogEntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/ExerciseLog/ExerciseLogEntryFormView.swift; sourceTree = "<group>"; };
 		A1B2C3D31F00000100000018 /* ExerciseLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/ExerciseLog/ExerciseLogView.swift; sourceTree = "<group>"; };
 		A1B2C3D31F00000100000019 /* ExerciseLogFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLogFeatureTests.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000001A /* BiometricsEntryDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/BiometricsLog/BiometricsEntryDraft.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000001B /* BiometricsLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/BiometricsLog/BiometricsLogViewModel.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000001C /* BiometricsEntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/BiometricsLog/BiometricsEntryFormView.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000001D /* BiometricsLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/BiometricsLog/BiometricsLogView.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000001E /* BiometricsLogFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsLogFeatureTests.swift; sourceTree = "<group>"; };
 		A1B2C3D31F00000100000010 /* Tubby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Tubby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D31F00000100000011 /* TubbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = TubbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +112,10 @@
 				A1B2C3D31F00000100000016 /* ExerciseLogViewModel.swift */,
 				A1B2C3D31F00000100000017 /* ExerciseLogEntryFormView.swift */,
 				A1B2C3D31F00000100000018 /* ExerciseLogView.swift */,
+				A1B2C3D31F0000010000001A /* BiometricsEntryDraft.swift */,
+				A1B2C3D31F0000010000001B /* BiometricsLogViewModel.swift */,
+				A1B2C3D31F0000010000001C /* BiometricsEntryFormView.swift */,
+				A1B2C3D31F0000010000001D /* BiometricsLogView.swift */,
 				A1B2C3D31F00000100000008 /* TodayView.swift */,
 				A1B2C3D31F00000100000013 /* TodayViewModel.swift */,
 				A1B2C3D11F00000100000004 /* TubbyTests */,
@@ -123,6 +137,7 @@
 				A1B2C3D31F0000010000000B /* TubbyPersistenceTests.swift */,
 				A1B2C3D31F00000100000012 /* FoodLogFeatureTests.swift */,
 				A1B2C3D31F00000100000019 /* ExerciseLogFeatureTests.swift */,
+				A1B2C3D31F0000010000001E /* BiometricsLogFeatureTests.swift */,
 				A1B2C3D31F00000100000014 /* TodayFeatureTests.swift */,
 			);
 			path = Tests/TubbyTests;
@@ -236,6 +251,10 @@
 				A1B2C3D41F00000100000016 /* ExerciseLogViewModel.swift in Sources */,
 				A1B2C3D41F00000100000017 /* ExerciseLogEntryFormView.swift in Sources */,
 				A1B2C3D41F00000100000018 /* ExerciseLogView.swift in Sources */,
+				A1B2C3D41F0000010000001A /* BiometricsEntryDraft.swift in Sources */,
+				A1B2C3D41F0000010000001B /* BiometricsLogViewModel.swift in Sources */,
+				A1B2C3D41F0000010000001C /* BiometricsEntryFormView.swift in Sources */,
+				A1B2C3D41F0000010000001D /* BiometricsLogView.swift in Sources */,
 				A1B2C3D41F00000100000008 /* TodayView.swift in Sources */,
 				A1B2C3D41F00000100000013 /* TodayViewModel.swift in Sources */,
 			);
@@ -249,6 +268,7 @@
 				A1B2C3D41F0000010000000B /* TubbyPersistenceTests.swift in Sources */,
 				A1B2C3D41F00000100000012 /* FoodLogFeatureTests.swift in Sources */,
 				A1B2C3D41F00000100000019 /* ExerciseLogFeatureTests.swift in Sources */,
+				A1B2C3D41F0000010000001E /* BiometricsLogFeatureTests.swift in Sources */,
 				A1B2C3D41F00000100000014 /* TodayFeatureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
