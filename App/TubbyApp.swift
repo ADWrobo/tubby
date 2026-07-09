@@ -1,3 +1,4 @@
+#if os(iOS)
 import SwiftUI
 import SwiftData
 
@@ -27,3 +28,4 @@ struct TubbyApp: App {
         )
     }
 }
+#endif
