@@ -3,6 +3,8 @@ import Combine
 
 @MainActor
 final class FoodLogViewModel: ObservableObject {
+    // The repository can be backed by either an actor or a @MainActor SwiftData service.
+    // Keep a nonisolated reference so the main-actor model can await it without extra wrappers.
     nonisolated(unsafe) let repository: any FoodLogEntryRepository
 
     @Published var selectedDate: Date
@@ -12,8 +14,7 @@ final class FoodLogViewModel: ObservableObject {
 
     init(
         repository: any FoodLogEntryRepository,
-        selectedDate: Date = Date(),
-        calendar _: Calendar = .current
+        selectedDate: Date = Date()
     ) {
         self.repository = repository
         self.selectedDate = selectedDate

@@ -113,7 +113,7 @@ struct FoodLogFeatureTests {
     @MainActor
     @Test func saveCallsRepositoryAndRefreshesEntries() async throws {
         let repository = InMemoryFoodLogEntryRepository(calendar: Self.utcCalendar)
-        let viewModel = FoodLogViewModel(repository: repository, selectedDate: Self.day, calendar: Self.utcCalendar)
+        let viewModel = FoodLogViewModel(repository: repository, selectedDate: Self.day)
 
         let draft = FoodLogEntryDraft(
             id: UUID(uuidString: "00000000-0000-0000-0000-000000004301")!,
@@ -155,7 +155,7 @@ struct FoodLogFeatureTests {
         )
         _ = try await repository.save(existingEntry)
 
-        let viewModel = FoodLogViewModel(repository: repository, selectedDate: Self.day, calendar: Self.utcCalendar)
+        let viewModel = FoodLogViewModel(repository: repository, selectedDate: Self.day)
         await viewModel.loadEntries()
         #expect(viewModel.entries == [existingEntry])
 
