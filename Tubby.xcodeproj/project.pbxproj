@@ -34,6 +34,7 @@
 		A1B2C3D41F0000010000001C /* BiometricsEntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001C /* BiometricsEntryFormView.swift */; };
 		A1B2C3D41F0000010000001D /* BiometricsLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001D /* BiometricsLogView.swift */; };
 		A1B2C3D41F0000010000001E /* BiometricsLogFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001E /* BiometricsLogFeatureTests.swift */; };
+		A1B2C3D41F0000010000001F /* ManualEntryFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D31F0000010000001F /* ManualEntryFormatting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		A1B2C3D31F0000010000001C /* BiometricsEntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/BiometricsLog/BiometricsEntryFormView.swift; sourceTree = "<group>"; };
 		A1B2C3D31F0000010000001D /* BiometricsLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features/BiometricsLog/BiometricsLogView.swift; sourceTree = "<group>"; };
 		A1B2C3D31F0000010000001E /* BiometricsLogFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsLogFeatureTests.swift; sourceTree = "<group>"; };
+		A1B2C3D31F0000010000001F /* ManualEntryFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualEntryFormatting.swift; sourceTree = "<group>"; };
 		A1B2C3D31F00000100000010 /* Tubby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Tubby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D31F00000100000011 /* TubbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = TubbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,10 +118,19 @@
 				A1B2C3D31F0000010000001B /* BiometricsLogViewModel.swift */,
 				A1B2C3D31F0000010000001C /* BiometricsEntryFormView.swift */,
 				A1B2C3D31F0000010000001D /* BiometricsLogView.swift */,
+				A1B2C3D11F00000100000005 /* Shared */,
 				A1B2C3D31F00000100000008 /* TodayView.swift */,
 				A1B2C3D31F00000100000013 /* TodayViewModel.swift */,
 				A1B2C3D11F00000100000004 /* TubbyTests */,
 			);
+			sourceTree = "<group>";
+		};
+		A1B2C3D11F00000100000005 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A1B2C3D31F0000010000001F /* ManualEntryFormatting.swift */,
+			);
+			path = Features/Shared;
 			sourceTree = "<group>";
 		};
 		A1B2C3D11F00000100000003 /* Products */ = {
@@ -255,6 +266,7 @@
 				A1B2C3D41F0000010000001B /* BiometricsLogViewModel.swift in Sources */,
 				A1B2C3D41F0000010000001C /* BiometricsEntryFormView.swift in Sources */,
 				A1B2C3D41F0000010000001D /* BiometricsLogView.swift in Sources */,
+				A1B2C3D41F0000010000001F /* ManualEntryFormatting.swift in Sources */,
 				A1B2C3D41F00000100000008 /* TodayView.swift in Sources */,
 				A1B2C3D41F00000100000013 /* TodayViewModel.swift in Sources */,
 			);
