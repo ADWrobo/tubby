@@ -32,20 +32,20 @@ struct FoodLogView: View {
 
             if viewModel.isLoading && viewModel.entries.isEmpty {
                 Section {
-                        HStack {
-                            Spacer()
+                    HStack {
+                        Spacer()
                         ProgressView("Loading recent entries")
-                            Spacer()
-                        }
+                        Spacer()
                     }
-                } else if viewModel.entries.isEmpty {
-                    Section {
-                        ContentUnavailableView(
-                            "No recent food entries",
-                            systemImage: "fork.knife",
-                            description: Text("Add a food entry for this day.")
-                        )
-                    }
+                }
+            } else if viewModel.entries.isEmpty {
+                Section {
+                    ContentUnavailableView(
+                        "No recent food entries",
+                        systemImage: "fork.knife",
+                        description: Text("Add a food entry for this day.")
+                    )
+                }
             } else {
                 Section {
                     ForEach(viewModel.entries) { entry in
@@ -100,9 +100,9 @@ struct FoodLogView: View {
         .sheet(item: $draft, onDismiss: {
             draft = nil
         }) { draftItem in
-                FoodLogEntryFormView(
-                    mode: draftItem.mode == .add ? .add : .edit,
-                    draft: draftItem,
+            FoodLogEntryFormView(
+                mode: draftItem.mode == .add ? .add : .edit,
+                draft: draftItem,
                 onSave: { updatedDraft in
                     try await viewModel.save(updatedDraft)
                 }

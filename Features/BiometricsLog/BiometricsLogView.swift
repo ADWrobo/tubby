@@ -32,20 +32,20 @@ struct BiometricsLogView: View {
 
             if viewModel.isLoading && viewModel.entries.isEmpty {
                 Section {
-                        HStack {
-                            Spacer()
+                    HStack {
+                        Spacer()
                         ProgressView("Loading recent entries")
-                            Spacer()
-                        }
+                        Spacer()
                     }
-                } else if viewModel.entries.isEmpty {
-                    Section {
-                        ContentUnavailableView(
-                            "No recent biometrics entries",
-                            systemImage: "heart.text.square",
-                            description: Text("Add a biometrics entry for this day.")
-                        )
-                    }
+                }
+            } else if viewModel.entries.isEmpty {
+                Section {
+                    ContentUnavailableView(
+                        "No recent measurements",
+                        systemImage: "heart.text.square",
+                        description: Text("Add a measurement for this day.")
+                    )
+                }
             } else {
                 Section {
                     ForEach(viewModel.entries) { entry in

@@ -24,7 +24,7 @@ struct TodayFeatureTests {
 
         #expect(viewModel.mealSummaryLines == ["No recent food entries"])
         #expect(viewModel.exerciseSummaryLines == ["No recent exercise entries"])
-        #expect(viewModel.biometricsSummaryLines == ["No recent biometrics entries"])
+        #expect(viewModel.biometricsSummaryLines == ["No recent measurements"])
         #expect(viewModel.errorMessage == nil)
     }
 

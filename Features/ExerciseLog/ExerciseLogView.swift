@@ -32,20 +32,20 @@ struct ExerciseLogView: View {
 
             if viewModel.isLoading && viewModel.entries.isEmpty {
                 Section {
-                        HStack {
-                            Spacer()
+                    HStack {
+                        Spacer()
                         ProgressView("Loading recent entries")
-                            Spacer()
-                        }
+                        Spacer()
                     }
-                } else if viewModel.entries.isEmpty {
-                    Section {
-                        ContentUnavailableView(
-                            "No recent exercise entries",
-                            systemImage: "figure.walk",
-                            description: Text("Add an exercise entry for this day.")
-                        )
-                    }
+                }
+            } else if viewModel.entries.isEmpty {
+                Section {
+                    ContentUnavailableView(
+                        "No recent exercise entries",
+                        systemImage: "figure.walk",
+                        description: Text("Add an exercise entry for this day.")
+                    )
+                }
             } else {
                 Section {
                     ForEach(viewModel.entries) { entry in

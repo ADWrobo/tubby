@@ -85,7 +85,7 @@ final class TodayViewModel: ObservableObject {
 
     var biometricsSummaryLines: [String] {
         guard !summary.biometricEntries.isEmpty else {
-            return ["No recent biometrics entries"]
+            return ["No recent measurements"]
         }
 
         var lines = ["\(summary.biometricEntries.count) \(entryText(summary.biometricEntries.count, singular: "biometric entry", plural: "biometric entries")) logged"]

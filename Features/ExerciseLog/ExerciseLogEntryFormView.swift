@@ -66,7 +66,7 @@ struct ExerciseLogEntryFormView: View {
                 }
 
                 Section("Energy estimate") {
-                    optionalNumberField("Calories burned per minute estimate", text: $draft.caloriesBurnedPerMinuteText)
+                    optionalNumberField("Calorie estimate per minute", text: $draft.caloriesBurnedPerMinuteText)
                 }
 
                 if let errorMessage {

@@ -65,7 +65,7 @@ struct FoodLogEntryFormView: View {
                 }
 
                 Section("Nutrition estimate") {
-                    optionalNumberField("Calories estimate", text: $draft.caloriesText)
+                    optionalNumberField("Calorie estimate", text: $draft.caloriesText)
                     optionalNumberField("Protein estimate (g)", text: $draft.proteinText)
                     optionalNumberField("Carbohydrates estimate (g)", text: $draft.carbohydratesText)
                     optionalNumberField("Fat estimate (g)", text: $draft.fatText)

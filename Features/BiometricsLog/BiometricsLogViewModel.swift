@@ -79,7 +79,7 @@ private enum BiometricsLogViewError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .load:
-            return "We couldn't load recent biometrics entries. Please try again."
+            return "We couldn't load recent measurements. Please try again."
         case .save:
             return "We couldn't save this entry. Please try again."
         case .delete:
